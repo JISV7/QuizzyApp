@@ -1,0 +1,78 @@
+# ==================================
+# Global / Editor / OS
+# ==================================
+
+# Logs
+logs
+*.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# Caches y builds temporales
+.cache
+*.tsbuildinfo
+
+# Archivos de Sistema Operativo
+.DS_Store
+
+# Directorios de IDEs y editores
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ==================================
+# Frontend (/client)
+# ==================================
+
+# Dependencias
+client/node_modules
+
+# Archivos de entorno
+client/.env
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
+client/*.local
+
+# Build output
+client/dist
+client/dist-ssr
+client/out
+client/*.tgz
+
+# Reportes de cobertura de tests
+client/coverage
+client/*.lcov
+
+# Caches de linter
+client/.eslintcache
+
+# ==================================
+# Backend (/server)
+# ==================================
+
+# Dependencias
+server/node_modules
+
+# Archivos de entorno
+server/.env
+server/.env.local
+
+# Build output
+server/dist
+server/out
+
+# Logs de gestores de paquetes
+server/npm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
+server/pnpm-debug.log*
+server/lerna-debug.log*
+
+# Archivos subidos por usuarios
+server/public/uploads/
