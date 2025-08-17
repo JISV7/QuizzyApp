@@ -8,6 +8,7 @@ import { CoursesPage } from '@/features/courses/CoursesPage';
 import { CourseDetailPage } from '@/features/course-detail/CourseDetailPage';
 import { AssignmentDetailPage } from '@/features/assignment-detail/AssignmentDetailPage';
 import { QuizEditorPage } from '@/features/quiz-editor/QuizEditorPage';
+import { TakeQuizPage } from '@/features/quiz-take/TakeQuizPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/courses/:courseId" element={<CourseDetailPage />} />
             <Route path="/assignments/:assignmentId" element={<AssignmentDetailPage />} />
             <Route path="/assignments/:assignmentId/edit" element={<QuizEditorPage />} />
+            <Route path="/assignments/:assignmentId/take" element={<TakeQuizPage />} />
           </Route>
         </Routes>
       </AuthProvider>
