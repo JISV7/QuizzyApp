@@ -5,6 +5,7 @@ import { LandingPage } from '@/features/landing/LandingPage';
 import { RegisterPage } from '@/features/auth/RegisterPage';
 import { LoginPage } from '@/features/auth/LoginPage';
 import { CoursesPage } from '@/features/courses/CoursesPage';
+import { CourseDetailPage } from '@/features/course-detail/CourseDetailPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           {/* Rutas Protegidas */}
           <Route element={<ProtectedRoute />}>
             <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/courses/:courseId" element={<CourseDetailPage />} />
           </Route>
         </Routes>
       </AuthProvider>
