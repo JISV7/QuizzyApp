@@ -1,0 +1,62 @@
+/* StudentSubmissionView.css */
+
+.submission-status-view {
+  text-align: center;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+/* Estilos para la vista de "Comenzar Quiz" */
+.start-quiz {
+  background-color: #e0f7fa; /* Celeste muy claro */
+  border: 2px dashed var(--turquoise);
+}
+
+.start-quiz h3 {
+  font-size: 1.8rem;
+  color: var(--dark-blue);
+  margin-bottom: 8px;
+}
+
+.start-quiz p {
+  color: var(--text-color-light);
+  margin-bottom: 24px;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-start-quiz {
+  font-size: 1.2rem !important;
+  padding: 14px 32px !important;
+  box-shadow: 0 4px 15px rgba(40, 175, 176, 0.2);
+}
+
+/* Estilos para la vista de "Quiz Completado" */
+.completed {
+  background-color: #fff9e6; /* Amarillo muy claro */
+}
+
+.completed h3 {
+  font-size: 1.8rem;
+  color: var(--orange);
+}
+
+.completed p {
+  color: var(--text-color-light);
+}
+
+.grade-display {
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+.grade-score {
+  font-size: 4rem;
+  color: var(--dark-blue);
+}
+
+.grade-max {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
