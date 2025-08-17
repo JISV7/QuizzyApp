@@ -4,6 +4,7 @@ import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { LandingPage } from '@/features/landing/LandingPage';
 import { RegisterPage } from '@/features/auth/RegisterPage';
 import { LoginPage } from '@/features/auth/LoginPage';
+import { HomePage } from '@/features/home/HomePage';
 import { CoursesPage } from '@/features/courses/CoursesPage';
 import { CourseDetailPage } from '@/features/course-detail/CourseDetailPage';
 import { AssignmentDetailPage } from '@/features/assignment-detail/AssignmentDetailPage';
@@ -22,6 +23,7 @@ function App() {
 
           {/* Rutas Protegidas */}
           <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<HomePage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:courseId" element={<CourseDetailPage />} />
             <Route path="/assignments/:assignmentId" element={<AssignmentDetailPage />} />
