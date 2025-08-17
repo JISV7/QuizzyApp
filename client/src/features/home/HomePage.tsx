@@ -27,6 +27,12 @@ export const HomePage = () => {
               Mis Cursos
             </button>
             <button 
+              className="btn btn-primary" 
+              onClick={() => navigate('/planner')}
+            >
+              Calendario
+            </button>
+            <button 
               className="btn btn-secondary" 
               onClick={logout}
             >

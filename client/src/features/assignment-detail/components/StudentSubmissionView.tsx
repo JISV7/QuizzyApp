@@ -9,6 +9,8 @@ interface Submission {
 interface Assignment {
   id: number;
   total_points: number;
+  close_date: string;
+  allow_late_submissions: boolean;
 }
 
 interface StudentSubmissionViewProps {
@@ -17,6 +19,8 @@ interface StudentSubmissionViewProps {
 }
 
 export const StudentSubmissionView = ({ assignment, submission }: StudentSubmissionViewProps) => {
+
+  const isOverdue = new Date() > new Date(assignment.close_date) && !assignment.allow_late_submissions;
 
   // --- VISTA CUANDO EL QUIZ YA FUE COMPLETADO ---
   if (submission) {
@@ -29,6 +33,15 @@ export const StudentSubmissionView = ({ assignment, submission }: StudentSubmiss
           <span className="grade-max">/ {assignment.total_points}</span>
         </div>
         {/* Opcional: Podrías agregar un link para ver los detalles de la entrega */}
+      </div>
+    );
+  }
+
+  if (isOverdue) {
+    return (
+      <div className="submission-status-view overdue">
+        <h3>Asignación Vencida</h3>
+        <p>La fecha límite para entregar esta asignación ha pasado.</p>
       </div>
     );
   }

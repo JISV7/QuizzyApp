@@ -10,6 +10,7 @@ import { CourseDetailPage } from '@/features/course-detail/CourseDetailPage';
 import { AssignmentDetailPage } from '@/features/assignment-detail/AssignmentDetailPage';
 import { QuizEditorPage } from '@/features/quiz-editor/QuizEditorPage';
 import { TakeQuizPage } from '@/features/quiz-take/TakeQuizPage';
+import { PlannerPage } from '@/features/planner/PlannerPage';
 
 import { DocsLayout } from '@/features/docs/DocsLayout';
 import { TermsPage } from '@/features/docs/TermsPage';
@@ -48,6 +49,7 @@ function App() {
             <Route path="/assignments/:assignmentId" element={<AssignmentDetailPage />} />
             <Route path="/assignments/:assignmentId/edit" element={<QuizEditorPage />} />
             <Route path="/assignments/:assignmentId/take" element={<TakeQuizPage />} />
+            <Route path="/planner" element={<PlannerPage />} />
           </Route>
         </Routes>
       </AuthProvider>

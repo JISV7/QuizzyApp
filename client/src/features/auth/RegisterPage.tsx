@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import './AuthForm.css';
@@ -11,6 +11,7 @@ export const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('student');
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
@@ -21,6 +22,12 @@ export const RegisterPage = () => {
     e.preventDefault();
     setError(null);
     setSuccessMessage(null);
+
+    if (!termsAccepted) {
+      setError('Debes aceptar los términos y condiciones para continuar.');
+      return;
+    }
+
     try {
       await register({ firstName, lastName, username, email, password, role });
       setSuccessMessage('¡Registro exitoso! Bienvenido a Quizzy.');
@@ -33,7 +40,7 @@ export const RegisterPage = () => {
     if (successMessage) {
       const timer = setTimeout(() => {
         navigate('/login');
-      }, 1000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [successMessage, navigate]);
@@ -61,25 +68,32 @@ export const RegisterPage = () => {
             />
           </div>
 
-
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input type="email" id="email" placeholder="tu@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
-
 
           <div className="form-group">
             <label htmlFor="password">Contraseña</label>
             <input type="password" id="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </div>
 
-
           <div className="form-group">
             <label htmlFor="role">Soy un...</label>
-            <select id="role" className="form-group-input"value={role}onChange={(e) => setRole(e.target.value)} >
+            <select id="role" className="form-group-input" value={role} onChange={(e) => setRole(e.target.value)} >
               <option value="student">Estudiante</option>
               <option value="teacher">Profesor</option>
             </select>
+          </div>
+
+          <div className="form-group-checkbox" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <input type="checkbox" id="terms" checked={termsAccepted} onChange={(e) => setTermsAccepted(e.target.checked)} required />
+            <label htmlFor="terms">
+              He leído y acepto los{' '}
+              <a href="/docs/terms" target="_blank" rel="noopener noreferrer">
+                Términos y condiciones
+              </a>.
+            </label>
           </div>
           
           {error && <p className="error-message">{error}</p>}
@@ -91,7 +105,7 @@ export const RegisterPage = () => {
         <p className="auth-switch-link">
           ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
         </p>
-        <Footer></Footer>
+        <Footer />
       </div>
     </div>
   );
