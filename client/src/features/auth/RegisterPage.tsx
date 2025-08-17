@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import './AuthForm.css';
+import { Footer } from '@/components/Footer';
 
 export const RegisterPage = () => {
   const [firstName, setFirstName] = useState('');
@@ -90,6 +91,7 @@ export const RegisterPage = () => {
         <p className="auth-switch-link">
           ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
         </p>
+        <Footer></Footer>
       </div>
     </div>
   );

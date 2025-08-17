@@ -11,6 +11,15 @@ import { AssignmentDetailPage } from '@/features/assignment-detail/AssignmentDet
 import { QuizEditorPage } from '@/features/quiz-editor/QuizEditorPage';
 import { TakeQuizPage } from '@/features/quiz-take/TakeQuizPage';
 
+import { DocsLayout } from '@/features/docs/DocsLayout';
+import { TermsPage } from '@/features/docs/TermsPage';
+import { PrivacyPage } from '@/features/docs/PrivacyPage';
+import { SecurityPage } from '@/features/docs/SecurityPage';
+import { DocsPage } from '@/features/docs/DocsPage';
+import { ContactPage } from '@/features/docs/ContactPage';
+import { CookiesPage } from '@/features/docs/CookiesPage';
+import { StatusPage } from '@/features/docs/StatusPage';
+
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +29,16 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+
+          <Route path="/docs" element={<DocsLayout />}>
+            <Route path="terms" element={<TermsPage />} />
+            <Route path="privacy" element={<PrivacyPage />} />
+            <Route path="security" element={<SecurityPage />} />
+            <Route path="manuals" element={<DocsPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="cookies" element={<CookiesPage />} />
+            <Route path="status" element={<StatusPage />} />
+          </Route>
 
           {/* Rutas Protegidas */}
           <Route element={<ProtectedRoute />}>

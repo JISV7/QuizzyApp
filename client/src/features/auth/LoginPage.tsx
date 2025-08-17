@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import './AuthForm.css';
 import { useState } from 'react';
+import { Footer } from '@/components/Footer';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -52,6 +53,7 @@ export const LoginPage = () => {
         <p className="auth-switch-link">
           ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
         </p>
+        <Footer />
       </div>
     </div>
   );
