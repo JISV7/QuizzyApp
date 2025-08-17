@@ -4,6 +4,7 @@ import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { LandingPage } from '@/features/landing/LandingPage';
 import { RegisterPage } from '@/features/auth/RegisterPage';
 import { LoginPage } from '@/features/auth/LoginPage';
+import { CoursesPage } from '@/features/courses/CoursesPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
           {/* Rutas Protegidas */}
           <Route element={<ProtectedRoute />}>
+            <Route path="/courses" element={<CoursesPage />} />
           </Route>
         </Routes>
       </AuthProvider>
