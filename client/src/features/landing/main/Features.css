@@ -1,0 +1,55 @@
+/* Features.css */
+
+.features-section {
+    background-color: var(--light-gray);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.feature-card {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Asignar colores a los íconos */
+.feature-card:nth-child(1) .feature-icon { background-color: #e0f7fa; } /* Celeste */
+.feature-card:nth-child(2) .feature-icon { background-color: #fff9c4; } /* Amarillo */
+.feature-card:nth-child(3) .feature-icon { background-color: #ffecb3; } /* Naranja claro */
+.feature-card:nth-child(4) .feature-icon { background-color: #e0f2f1; } /* Turquesa claro */
+.feature-card:nth-child(5) .feature-icon { background-color: #fef3c7; } /* Amarillo */
+.feature-card:nth-child(6) .feature-icon { background-color: #ffdde2; } /* Naranja suave */
+
+.feature-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+}

@@ -1,0 +1,125 @@
+.assignment-detail-layout {
+  background-color: var(--light-gray);
+  min-height: 100vh;
+  padding: 32px 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.assignment-detail-container {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 32px 40px;
+}
+
+.loading-state, .error-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  font-size: 1.2rem;
+  color: var(--text-color-light);
+}
+
+.error-state {
+  color: #d9534f;
+  background-color: #f2dede;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: var(--dark-blue);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  color: var(--turquoise);
+}
+
+.assignment-header {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.assignment-header h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0 0 8px 0;
+}
+
+.assignment-header p {
+  font-size: 1.1rem;
+  color: var(--text-color-light);
+  line-height: 1.6;
+  max-width: 80ch;
+}
+
+.assignment-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  align-items: flex-end; /* Alinea los items en la parte inferior */
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 100px;
+}
+
+.meta-item strong {
+  font-size: 0.9rem;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+}
+
+.meta-item span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.points-and-edit {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto; /* Empuja este contenedor a la derecha */
+}
+
+.points-display {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: right;
+}
+
+.btn-edit-questions {
+  background-color: var(--turquoise);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-edit-questions:hover {
+  background-color: #239a9b;
+  transform: translateY(-2px);
+}
