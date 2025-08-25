@@ -23,11 +23,12 @@ interface Assignment {
 interface Submission {
   id: number;
   grade: number | null;
-  submitted_at: string;
-  student_id?: number;
-  first_name?: string;
-  last_name?: string;
+  submitted_at: string | null;
+  student_id: number;
+  first_name: string;
+  last_name: string;
   assignment_id?: number;
+  submission_id: number | null;
   title?: string;
 }
 

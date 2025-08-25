@@ -17,7 +17,7 @@ export interface Question {
   id: number;
   question_text: string;
   points: number;
-  options: Option[];
+  options: (Option | NewOption)[];
 }
 
 // Para una pregunta que aún no ha sido guardada en la BD

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { Question, NewQuestion, Option, NewOption } from './types';
+import type { Question, NewQuestion, NewOption } from './types';
 import './QuestionForm.css';
 
 interface QuestionFormProps {
