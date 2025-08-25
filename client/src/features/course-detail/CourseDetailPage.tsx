@@ -19,7 +19,7 @@ interface Assignment {
   title: string;
   type: 'task' | 'quiz' | 'material' | 'exam';
   close_date: string;
-  max_points: number;
+  max_points?: number;
   total_points: number;
 }
 
@@ -183,7 +183,6 @@ export const CourseDetailPage = () => {
                     assignment={assignment}
                     userRole={user?.role}
                     onDelete={handleDeleteConfirmation}
-                    isCompleted={false}
                   />
                 ))}
 
@@ -196,7 +195,6 @@ export const CourseDetailPage = () => {
                         assignment={assignment}
                         userRole={user?.role}
                         onDelete={handleDeleteConfirmation}
-                        isCompleted={true}
                       />
                     ))}
                   </>

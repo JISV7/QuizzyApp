@@ -79,8 +79,7 @@ export const QuizEditorPage = () => {
         <main>
           <QuizEditor
             initialQuestions={assignment.questions}
-            assignmentId={Number(assignmentId)}
-            onQuestionsChange={fetchAssignmentDetails}
+            assignmentId={assignmentId!}
           />
         </main>
       </div>

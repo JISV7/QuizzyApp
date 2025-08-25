@@ -124,6 +124,7 @@ export const CoursesPage = () => {
           )}
         </Modal>
       </div>
+      <Footer />
     </div>
   );
 };
