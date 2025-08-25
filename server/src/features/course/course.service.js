@@ -165,7 +165,7 @@ export const generateCourseInvite = async (courseId, teacherId) => {
   );
   
   // Devolver el enlace completo para el frontend
-  const clientURL = process.env.CORS_ORIGIN || 'http://localhost:5173';
+  const clientURL = process.env.CORS_ORIGIN;
   return `${clientURL}/join/${token}`;
 };
 
