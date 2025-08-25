@@ -1,0 +1,81 @@
+/* CoursesPage.css */
+.courses-page-layout {
+  background-color: var(--light-gray);
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.courses-page-container {
+  padding: 40px 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.courses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.courses-header h1 {
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.back-to-dashboard-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: var(--dark-blue);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.back-to-dashboard-link:hover {
+  color: var(--turquoise);
+  text-decoration: underline;
+}
+
+.no-courses-message {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+}
+
+.no-courses-message h3 {
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.no-courses-message p {
+  color: var(--text-color-light);
+}
+
+.loading-indicator {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+}
+
+/* Estilos para el modal de confirmación */
+.confirm-delete-modal p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-color-light);
+}
+
+.confirm-delete-modal .warning-text {
+  font-size: 1rem;
+  color: var(--orange);
+  font-weight: 500;
+}

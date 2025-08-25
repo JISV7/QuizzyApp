@@ -1,0 +1,80 @@
+/* TeacherSubmissionsView.css */
+.teacher-submissions-container {
+  margin-top: 24px;
+}
+
+.view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.view-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--black);
+}
+
+.search-input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  min-width: 280px;
+  font-size: 1rem;
+}
+
+.submissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.submissions-table th {
+  background-color: var(--light-gray);
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.submissions-table td {
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  color: var(--text-color);
+}
+
+.submissions-table tbody tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+.grade-cell {
+  font-weight: 700;
+}
+
+.grade-cell.graded {
+  color: var(--dark-blue);
+}
+
+.grade-cell.pending {
+  color: var(--text-color-light);
+  font-weight: 500;
+}
+
+.no-submissions-row {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-color-light);
+  font-size: 1.1rem;
+}
+
+.submissions-table tbody tr.clickable-row {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submissions-table tbody tr.clickable-row:hover {
+  background-color: #f3f4f6;
+}

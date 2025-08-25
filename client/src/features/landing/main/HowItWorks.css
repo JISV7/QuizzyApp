@@ -1,0 +1,64 @@
+/* HowItWorks.css */
+
+.how-section {
+    background-color: var(--white);
+}
+
+.how-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.how-step {
+  flex: 1;
+  max-width: 300px;
+}
+
+.how-image-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.how-image-container img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.step-number {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: 4px solid var(--white);
+}
+
+.how-step:nth-child(1) .step-number { background-color: var(--turquoise); }
+.how-step:nth-child(2) .step-number { background-color: var(--yellow); color: var(--black); }
+.how-step:nth-child(3) .step-number { background-color: var(--orange); }
+
+.how-step h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 768px) {
+  .how-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+}

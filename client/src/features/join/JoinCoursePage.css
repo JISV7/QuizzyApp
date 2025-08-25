@@ -1,0 +1,24 @@
+.join-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--light-gray);
+}
+
+.join-card {
+  padding: 40px;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.error-title {
+  color: #ef4444; /* Rojo */
+}
+
+.error-message {
+  margin: 16px 0;
+  color: var(--text-color-light);
+}

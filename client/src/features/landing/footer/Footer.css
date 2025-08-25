@@ -1,0 +1,111 @@
+/* Footer.css para la Landing Page */
+.main-footer {
+  background-color: var(--black);
+  color: #adb5bd; /* Un gris claro para el texto secundario */
+  padding-top: 4rem;
+  font-size: 0.95rem;
+}
+
+.footer-landing-container {
+  display: grid;
+  /* Un grid responsive que se adapta al contenido */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  max-width: 1140px;
+}
+
+.footer-landing-about h3 {
+  color: var(--white);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.footer-landing-about p {
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+.footer-landing-links h4 {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-landing-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-landing-links ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-landing-links a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-landing-links a:hover {
+  color: var(--turquoise);
+  text-decoration: underline;
+}
+
+.footer-landing-bottom {
+  border-top: 1px solid #343a40; /* Un separador sutil */
+  padding: 1.5rem 0;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1140px;
+}
+
+.bottom-container p {
+    margin: 0;
+}
+
+.legal-links a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.legal-links a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+/* Media query para mejorar la visualización en móviles */
+@media (max-width: 768px) {
+  .footer-landing-container {
+    grid-template-columns: 1fr 1fr; /* Dos columnas en tablets */
+  }
+  .footer-landing-about {
+    grid-column: 1 / -1; /* El "about" ocupa todo el ancho */
+  }
+  .bottom-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-landing-container {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+    text-align: center;
+  }
+  .footer-landing-about p {
+    margin: 0 auto;
+  }
+}

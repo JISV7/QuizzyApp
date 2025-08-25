@@ -1,0 +1,59 @@
+.planner-container {
+  padding: 24px 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px Rgba(0, 0, 0, 0.05);
+  margin: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.planner-container h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #1a202c;
+}
+
+/* --- FullCalendar Customization --- */
+.fc {
+  font-family: 'Inter', sans-serif;
+}
+
+.fc .fc-button-primary {
+  background-color: #4a5568;
+  border-color: #4a5568;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.fc .fc-button-primary:hover {
+  background-color: #2d3748;
+  border-color: #2d3748;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: #edf2f7;
+}
+
+.fc-event {
+    cursor: pointer;
+    border-width: 2px !important;
+}
+
+.planner-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  font-size: 1.1rem;
+  color: #718096;
+}
+
+.planner-status.error {
+  color: #e53e3e;
+  background-color: #fff5f5;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 40px auto;
+}

@@ -1,0 +1,46 @@
+/* CallToAction.css */
+
+.cta-section {
+    background: linear-gradient(45deg, var(--dark-blue), var(--turquoise));
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: var(--white);
+    font-size: 2.8rem;
+}
+
+.cta-section .section-description {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+.cta-actions .btn-primary {
+    background-color: var(--yellow);
+    color: var(--black);
+    padding: 15px 35px;
+    font-size: 1.1rem;
+}
+
+.cta-actions .btn-primary:hover {
+    background-color: #e9c44d;
+    box-shadow: 0 4px 15px rgba(244, 211, 94, 0.4);
+}
+
+.cta-actions .btn-secondary {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.cta-actions .btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--dark-blue);
+}
+
+span {
+    color: #ee964b;
+}
+.highlightCTA {
+    color: #fef3c7
+}
