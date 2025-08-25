@@ -69,3 +69,12 @@
   color: var(--text-color-light);
   font-size: 1.1rem;
 }
+
+.submissions-table tbody tr.clickable-row {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submissions-table tbody tr.clickable-row:hover {
+  background-color: #f3f4f6;
+}

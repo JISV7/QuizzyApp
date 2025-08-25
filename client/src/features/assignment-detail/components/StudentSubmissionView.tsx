@@ -3,6 +3,7 @@ import './StudentSubmissionView.css';
 
 // --- Interfaces ---
 interface Submission {
+  id: number;
   grade: number | null;
 }
 
@@ -32,7 +33,9 @@ export const StudentSubmissionView = ({ assignment, submission }: StudentSubmiss
           <span className="grade-score">{submission.grade ?? 0}</span>
           <span className="grade-max">/ {assignment.total_points}</span>
         </div>
-        {/* Opcional: Podrías agregar un link para ver los detalles de la entrega */}
+        <Link to={`/submissions/${submission.id}`} className="btn btn-secondary btn-review">
+          Revisar mis respuestas
+        </Link>
       </div>
     );
   }

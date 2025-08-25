@@ -11,6 +11,7 @@ import { AssignmentDetailPage } from '@/features/assignment-detail/AssignmentDet
 import { QuizEditorPage } from '@/features/quiz-editor/QuizEditorPage';
 import { TakeQuizPage } from '@/features/quiz-take/TakeQuizPage';
 import { PlannerPage } from '@/features/planner/PlannerPage';
+import { SubmissionDetailPage } from '@/features/submission-detail/SubmissionDetailPage';
 
 import { DocsLayout } from '@/features/docs/DocsLayout';
 import { TermsPage } from '@/features/docs/TermsPage';
@@ -49,6 +50,7 @@ function App() {
             <Route path="/assignments/:assignmentId" element={<AssignmentDetailPage />} />
             <Route path="/assignments/:assignmentId/edit" element={<QuizEditorPage />} />
             <Route path="/assignments/:assignmentId/take" element={<TakeQuizPage />} />
+            <Route path="/submissions/:submissionId" element={<SubmissionDetailPage />} />
             <Route path="/planner" element={<PlannerPage />} />
           </Route>
         </Routes>

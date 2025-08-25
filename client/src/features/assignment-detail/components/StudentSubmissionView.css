@@ -60,3 +60,16 @@
   font-size: 1.5rem;
   color: var(--text-color-light);
 }
+
+/* Estilos para el botón de revisión */
+.btn-review {
+  margin-top: 24px;
+  background-color: transparent;
+  border-color: var(--dark-blue);
+  color: var(--dark-blue);
+}
+
+.btn-review:hover {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}

@@ -1,8 +1,10 @@
 import { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './TeacherSubmissionsView.css';
 
 // --- Interfaces ---
 interface Submission {
+  submission_id: number | null;
   student_id: number;
   first_name: string;
   last_name: string;
@@ -15,15 +17,26 @@ interface TeacherSubmissionsViewProps {
 }
 
 // --- Sub-componente para la Fila ---
-const SubmissionRow = ({ submission, totalPoints }: { submission: Submission; totalPoints: number }) => (
-  <tr>
-    <td>{submission.first_name} {submission.last_name}</td>
-    <td>{submission.submitted_at ? new Date(submission.submitted_at).toLocaleString('es-VE') : 'Pendiente'}</td>
-    <td className={`grade-cell ${submission.grade !== null ? 'graded' : 'pending'}`}>
-      {submission.grade !== null ? `${submission.grade} / ${totalPoints}` : '—'}
-    </td>
-  </tr>
-);
+const SubmissionRow = ({ submission, totalPoints }: { submission: Submission; totalPoints: number }) => {
+  const navigate = useNavigate();
+
+  const handleRowClick = () => {
+    if (submission.submission_id) {
+      navigate(`/submissions/${submission.submission_id}`);
+    }
+  };
+
+  return (
+    <tr onClick={handleRowClick} className={submission.submission_id ? 'clickable-row' : ''}>
+      <td>{submission.first_name} {submission.last_name}</td>
+      <td>{submission.submitted_at ? new Date(submission.submitted_at).toLocaleString() : 'Pendiente'}</td>
+      <td className={`grade-cell ${submission.grade !== null ? 'graded' : 'pending'}`}>
+        {submission.grade !== null ? `${submission.grade} / ${totalPoints}` : '—'}
+      </td>
+    </tr>
+  );
+};
+
 
 // --- Componente Principal ---
 export const TeacherSubmissionsView = ({ assignment, submissions }: TeacherSubmissionsViewProps) => {
