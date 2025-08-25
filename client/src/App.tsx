@@ -12,6 +12,8 @@ import { QuizEditorPage } from '@/features/quiz-editor/QuizEditorPage';
 import { TakeQuizPage } from '@/features/quiz-take/TakeQuizPage';
 import { PlannerPage } from '@/features/planner/PlannerPage';
 import { SubmissionDetailPage } from '@/features/submission-detail/SubmissionDetailPage';
+import { NotFoundPage } from '@/components/NotFoundPage';
+import { JoinCoursePage } from '@/features/join/JoinCoursePage';
 
 import { DocsLayout } from '@/features/docs/DocsLayout';
 import { TermsPage } from '@/features/docs/TermsPage';
@@ -21,7 +23,6 @@ import { DocsPage } from '@/features/docs/DocsPage';
 import { ContactPage } from '@/features/docs/ContactPage';
 import { CookiesPage } from '@/features/docs/CookiesPage';
 import { StatusPage } from '@/features/docs/StatusPage';
-import { NotFoundPage } from '@/components/NotFoundPage';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
             <Route path="/dashboard" element={<HomePage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:courseId" element={<CourseDetailPage />} />
+            <Route path="/join/:inviteToken" element={<JoinCoursePage />} />
             <Route path="/assignments/:assignmentId" element={<AssignmentDetailPage />} />
             <Route path="/assignments/:assignmentId/edit" element={<QuizEditorPage />} />
             <Route path="/assignments/:assignmentId/take" element={<TakeQuizPage />} />

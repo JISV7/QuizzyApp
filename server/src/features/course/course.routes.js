@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { handleCreateCourse, handleDeleteCourse, handleGetEnrolledStudents, handleGetMyCourses, handleInviteStudent, handleRemoveStudent } from './course.controller.js';
+import { handleCreateCourse, handleDeleteCourse, handleGenerateInvite, handleGetEnrolledStudents, handleGetMyCourses, handleInviteStudent, handleJoinWithInvite, handleRemoveStudent } from './course.controller.js';
 import { verifyJWT } from '../../middlewares/auth.middleware.js';
 import { authorizeRoles } from '../../middlewares/role.middleware.js';
 import { handleGetCourseDetails } from './course.service.js';
@@ -28,5 +28,11 @@ router.get('/:courseId/students', authorizeRoles('teacher'), handleGetEnrolledSt
 
 // Eliminar a un estudiante de un curso (profesores)
 router.delete('/:courseId/students', authorizeRoles('teacher'), handleRemoveStudent);
+
+// Ruta para que un profesor genere un enlace de invitación
+router.post('/:courseId/generate-invite', authorizeRoles('teacher'), handleGenerateInvite);
+
+// Ruta para que un estudiante se una a un curso con un token
+router.post('/join/:inviteToken', authorizeRoles('student'), handleJoinWithInvite);
 
 export default router;

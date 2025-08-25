@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import { createCourse, findUserByUsername, enrollStudent, isStudentEnrolled, findCourseByCode, findCoursesByTeacherId, findCoursesByStudentId, findCourseByIdAndTeacher, deleteCourseById, findCourseById, unenrollStudent, findEnrolledStudentsByCourseId } from './course.repository.js';
 
 /**
@@ -142,4 +143,59 @@ export const removeStudentFromCourse = async (studentIds, courseId, teacherId) =
   if (result.affectedRows === 0) throw new Error('STUDENT_NOT_IN_COURSE');
   
   return { message: 'Estudiantes eliminados del curso con éxito.' };
+};
+
+/**
+ * Lógica para que un profesor genere un enlace de invitación temporal.
+ */
+export const generateCourseInvite = async (courseId, teacherId) => {
+  const course = await findCourseByIdAndTeacher(courseId, teacherId);
+  if (!course) {
+    throw new Error('NOT_AUTHORIZED_OR_NOT_FOUND');
+  }
+
+  // Crear el payload del token con el ID del curso
+  const payload = { courseId: Number(courseId) };
+
+  // Firmar el token con una expiración de 24 horas
+  const token = jwt.sign(
+    payload,
+    process.env.JWT_SECRET, // Usamos la misma clave secreta
+    { expiresIn: '24h' }
+  );
+  
+  // Devolver el enlace completo para el frontend
+  const clientURL = process.env.CORS_ORIGIN || 'http://localhost:5173';
+  return `${clientURL}/join/${token}`;
+};
+
+/**
+ * Lógica para que un estudiante se una a un curso usando el token.
+ */
+export const joinCourseWithInvite = async (inviteToken, studentId) => {
+  try {
+    // 1. Verificar el token (firma y expiración)
+    const decoded = jwt.verify(inviteToken, process.env.JWT_SECRET);
+    const { courseId } = decoded;
+
+    // 2. Verificar que el estudiante no esté ya inscrito
+    const alreadyEnrolled = await isStudentEnrolled(studentId, courseId);
+    if (alreadyEnrolled) {
+      throw new Error('ALREADY_ENROLLED');
+    }
+
+    // 3. Inscribir al estudiante
+    await enrollStudent(studentId, courseId);
+
+    // 4. Devolver el ID del curso para la redirección
+    return { courseId };
+
+  } catch (error) {
+    // Si el token es inválido o expiró, jwt.verify lanzará un error
+    if (error instanceof jwt.JsonWebTokenError || error instanceof jwt.TokenExpiredError) {
+      throw new Error('INVALID_OR_EXPIRED_TOKEN');
+    }
+    // Relanzar otros errores (como ALREADY_ENROLLED)
+    throw error;
+  }
 };

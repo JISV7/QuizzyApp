@@ -41,6 +41,18 @@ export const CourseDetailPage = () => {
   const [isManageStudentsModalOpen, setManageStudentsModalOpen] = useState(false);
   const [assignmentToDelete, setAssignmentToDelete] = useState<Assignment | null>(null);
 
+  const [inviteLink, setInviteLink] = useState('');
+  const [isInviteModalOpen, setInviteModalOpen] = useState(false);
+  const handleGenerateLink = async () => {
+    try {
+        const response = await apiClient.post(`/courses/${courseId}/generate-invite`);
+        setInviteLink(response.data.data.inviteLink);
+        setInviteModalOpen(true);
+      } catch (err) {
+        alert('No se pudo generar el enlace de invitación.');
+      }
+    };
+
   const fetchCourseData = async () => {
     if (!courseId || !user) return;
     try {
@@ -146,6 +158,9 @@ export const CourseDetailPage = () => {
               <button className="btn btn-secondary" onClick={() => setManageStudentsModalOpen(true)}>
                 👥 Gestionar Estudiantes
               </button>
+              <button className="btn btn-secondary" onClick={handleGenerateLink}>
+                🔗 Generar Enlace
+              </button>
               <button className="btn btn-primary" onClick={() => setCreateAssignmentModalOpen(true)}>
                 + Crear Asignación
               </button>
@@ -231,6 +246,20 @@ export const CourseDetailPage = () => {
             </div>
           </div>
         )}
+      </Modal>
+
+      <Modal
+        isOpen={isInviteModalOpen}
+        onClose={() => setInviteModalOpen(false)}
+        title="Enlace de Invitación (Válido por 24 horas)"
+      >
+        <p>Cualquier estudiante con este enlace podrá unirse a este curso por 24hr.</p>
+        <input type="text" readOnly value={inviteLink} style={{ width: '100%', padding: '8px' }} />
+        <div className="modal-footer" style={{ justifyContent: 'flex-start', paddingTop: '16px' }}>
+          <button className="btn btn-primary" onClick={() => navigator.clipboard.writeText(inviteLink)}>
+            Copiar Enlace
+          </button>
+        </div>
       </Modal>
     </div>
   );

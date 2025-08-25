@@ -1,4 +1,5 @@
-import { createNewCourse, fetchEnrolledStudents, fetchMyCourses, inviteStudentToCourse, removeCourse, removeStudentFromCourse } from './course.service.js';
+import jwt from 'jsonwebtoken';
+import { createNewCourse, fetchEnrolledStudents, fetchMyCourses, generateCourseInvite, inviteStudentToCourse, joinCourseWithInvite, removeCourse, removeStudentFromCourse } from './course.service.js';
 
 export const handleCreateCourse = async (req, res) => {
   try {
@@ -88,5 +89,47 @@ export const handleRemoveStudent = async (req, res) => {
     }
     console.error(error);
     res.status(500).json({ success: false, message: 'Error interno del servidor.' });
+  }
+};
+
+export const handleGenerateInvite = async (req, res) => {
+  try {
+    const { courseId } = req.params;
+    const teacherId = req.user.id;
+    const inviteLink = await generateCourseInvite(courseId, teacherId);
+    res.status(200).json({ success: true, data: { inviteLink } });
+  } catch (error) {
+   if (error.message === 'NOT_AUTHORIZED') {
+      return res.status(403).json({ success: false, message: 'No autorizado para gestionar invitaciones a este curso.' });
+    }
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Error interno del servidor.' });
+  }
+};
+
+export const handleJoinWithInvite = async (req, res) => {
+  try {
+    const { inviteToken } = req.params;
+    const studentId = req.user.id;
+    const result = await joinCourseWithInvite(inviteToken, studentId);
+    res.status(200).json({ success: true, data: result });
+  } catch (error) {
+    // Si hay un error, intentamos obtener el courseId del token para la redirección
+    const { inviteToken } = req.params;
+    let courseId = null;
+    try {
+      const decoded = jwt.decode(inviteToken);
+      if (decoded && typeof decoded === 'object') {
+        courseId = decoded.courseId;
+      }
+    } catch {}
+
+    const errorMap = {
+      // Añadimos el courseId a la respuesta de "ya inscrito"
+      'ALREADY_ENROLLED': { status: 409, message: 'Ya estás inscrito en este curso.', data: { courseId } },
+      'INVALID_OR_EXPIRED_TOKEN': { status: 400, message: 'El enlace de invitación no es válido o ha expirado.' }
+    };
+    const err = errorMap[error.message] || { status: 500, message: 'Error interno del servidor.' };
+    res.status(err.status).json({ success: false, message: err.message, data: err.data });
   }
 };
