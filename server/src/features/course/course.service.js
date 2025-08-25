@@ -79,11 +79,16 @@ export const removeCourse = async (courseId, teacherId) => {
  * Lógica para obtener los detalles de un curso específico.
  */
 export const fetchCourseDetails = async (courseId, user) => {
-  // 1. Verificar si el usuario tiene permiso
+  // 1. Verificamos si el curso existe
+  const courseDetails = await findCourseById(courseId);
+  if (!courseDetails) {
+    throw new Error('COURSE_NOT_FOUND');
+  }
+
+  // 2. Si el curso existe, ahora verificamos los permisos.
   let hasPermission = false;
   if (user.role === 'teacher') {
-    const course = await findCourseByIdAndTeacher(courseId, user.id);
-    if (course) hasPermission = true;
+    if (courseDetails.teacher_id === user.id) hasPermission = true;
   } else if (user.role === 'student') {
     const enrolled = await isStudentEnrolled(user.id, courseId);
     if (enrolled) hasPermission = true;
@@ -93,11 +98,6 @@ export const fetchCourseDetails = async (courseId, user) => {
     throw new Error('FORBIDDEN');
   }
 
-  // 2. Si tiene permiso, obtener los detalles del curso
-  const courseDetails = await findCourseById(courseId);
-  if (!courseDetails) {
-    throw new Error('COURSE_NOT_FOUND');
-  }
   return courseDetails;
 };
 

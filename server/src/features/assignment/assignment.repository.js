@@ -18,7 +18,7 @@ export const createAssignment = async (assignmentData, courseId) => {
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `;
   const params = [
-    courseId, title, description, type, max_points ?? null, formatForMySQL(open_date), formatForMySQL(close_date), !!allow_late_submissions
+    courseId, title, description, type, max_points ?? 0, formatForMySQL(open_date), formatForMySQL(close_date), !!allow_late_submissions
   ];
   
   const [result] = await pool.query(sql, params);

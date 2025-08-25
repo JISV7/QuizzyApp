@@ -44,7 +44,11 @@ export const findQuestionWithOptionsById = async (questionId) => {
   const optionsSql = 'SELECT id, option_text, is_correct FROM question_options WHERE question_id = ?';
   const [options] = await pool.query(optionsSql, [question.id]);
   
-  question.options = options;
+  question.options = options.map(opt => ({
+    ...opt,
+    is_correct: !!opt.is_correct 
+  }));
+  
   return question;
 };
 
@@ -98,11 +102,14 @@ export const findQuestionsByAssignmentId = async (assignmentId) => {
   const questionsSql = 'SELECT id, question_text, points FROM quiz_questions WHERE assignment_id = ? ORDER BY id';
   const [questions] = await pool.query(questionsSql, [assignmentId]);
 
-  const optionsFields = 'id, option_text, is_correct';
   for (const question of questions) {
-    const optionsSql = `SELECT ${optionsFields} FROM question_options WHERE question_id = ?`;
+    const optionsSql = `SELECT id, option_text, is_correct FROM question_options WHERE question_id = ?`;
     const [options] = await pool.query(optionsSql, [question.id]);
-    question.options = options;
+
+    question.options = options.map(opt => ({
+      ...opt,
+      is_correct: !!opt.is_correct
+    }));
   }
   return questions;
 };

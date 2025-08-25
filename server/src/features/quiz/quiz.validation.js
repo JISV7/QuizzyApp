@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 // Esquema para una opción de respuesta
 const optionSchema = z.object({
+  id: z.number().optional(), // Permite que las opciones existentes traigan su ID
   option_text: z.string().min(1, 'El texto de la opción no puede estar vacío.'),
   is_correct: z.boolean(),
 });
