@@ -14,6 +14,7 @@ interface Assignment {
   course_id: number;
   open_date: string;
   close_date: string;
+  allow_late_submissions: boolean
   max_points: number;
   total_points: number;
   question_count?: number;
@@ -110,11 +111,11 @@ export const AssignmentDetailPage = () => {
           <div className="assignment-meta">
             <div className="meta-item">
               <strong>Disponible:</strong>
-              <span>{new Date(assignment.open_date).toLocaleString('es-VE')}</span>
+              <span>{new Date(assignment.open_date).toLocaleString()}</span>
             </div>
             <div className="meta-item">
               <strong>Cierra:</strong>
-              <span>{new Date(assignment.close_date).toLocaleString('es-VE')}</span>
+              <span>{new Date(assignment.close_date).toLocaleString()}</span>
             </div>
             <div className="meta-item">
               <strong>Preguntas:</strong>

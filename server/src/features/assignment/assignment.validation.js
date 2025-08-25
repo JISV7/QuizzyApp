@@ -3,7 +3,7 @@ import { z } from 'zod';
 // Esquema para crear una nueva asignación de tipo quiz
 export const createAssignmentSchema = z.object({
   body: z.object({
-    title: z.string().min(3, "El título es requerido."),
+    title: z.string().min(1, "El título es requerido."),
     description: z.string().optional(),
     type: z.enum(['quiz', 'material', 'task'], {
         errorMap: () => ({ message: "El tipo de asignación no es válido." })

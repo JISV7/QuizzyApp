@@ -42,7 +42,7 @@ export const AssignmentCard = ({ assignment, userRole, onDelete }: AssignmentCar
           <span className="assignment-type">{details.label}</span>
           <h4 className="assignment-title">{assignment.title}</h4>
           <p className="assignment-dates">
-            Disponible hasta: {new Date(assignment.close_date).toLocaleString('es-VE', { dateStyle: 'medium', timeStyle: 'short' })}
+            Disponible hasta: {new Date(assignment.close_date).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}
           </p>
         </div>
         <div className="assignment-points">{assignment.total_points} pts</div>

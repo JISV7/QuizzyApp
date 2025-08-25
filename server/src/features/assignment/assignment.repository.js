@@ -74,7 +74,7 @@ export const deleteAssignmentById = async (assignmentId) => {
 export const createSubmission = async (submissionData, connection) => {
   const { assignmentId, studentId, grade } = submissionData;
   const db = connection || pool;
-  const sql = "INSERT INTO submissions (assignment_id, student_id, submitted_at, grade) VALUES (?, ?, NOW(), ?)";
+  const sql = "INSERT INTO submissions (assignment_id, student_id, submitted_at, grade) VALUES (?, ?, UTC_TIMESTAMP(), ?)";
   const [result] = await db.query(sql, [assignmentId, studentId, grade]);
   return result.insertId;
 };
