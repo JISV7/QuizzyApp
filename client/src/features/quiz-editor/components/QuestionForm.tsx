@@ -110,6 +110,7 @@ export const QuestionForm = ({ onSave, editingQuestion, onCancelEdit }: Question
           value={question.points}
           onChange={handleTextChange}
           min="1"
+          max="10000"
           required
         />
       </div>

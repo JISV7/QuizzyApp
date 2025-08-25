@@ -21,6 +21,7 @@ import { DocsPage } from '@/features/docs/DocsPage';
 import { ContactPage } from '@/features/docs/ContactPage';
 import { CookiesPage } from '@/features/docs/CookiesPage';
 import { StatusPage } from '@/features/docs/StatusPage';
+import { NotFoundPage } from '@/components/NotFoundPage';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
             <Route path="/submissions/:submissionId" element={<SubmissionDetailPage />} />
             <Route path="/planner" element={<PlannerPage />} />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

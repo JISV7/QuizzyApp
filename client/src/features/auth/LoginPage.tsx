@@ -18,6 +18,7 @@ export const LoginPage = () => {
       // La redirección se maneja dentro de la función de login
     } catch (err: any) {
       setError(err.response?.data?.message || 'Error al iniciar sesión.');
+      setPassword(''); 
     }
   };
 
