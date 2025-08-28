@@ -34,6 +34,8 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
 
+          <Route path="/join/:inviteToken" element={<JoinCoursePage />} />
+
           <Route path="/docs" element={<DocsLayout />}>
             <Route path="terms" element={<TermsPage />} />
             <Route path="privacy" element={<PrivacyPage />} />
@@ -49,7 +51,6 @@ function App() {
             <Route path="/dashboard" element={<HomePage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:courseId" element={<CourseDetailPage />} />
-            <Route path="/join/:inviteToken" element={<JoinCoursePage />} />
             <Route path="/assignments/:assignmentId" element={<AssignmentDetailPage />} />
             <Route path="/assignments/:assignmentId/edit" element={<QuizEditorPage />} />
             <Route path="/assignments/:assignmentId/take" element={<TakeQuizPage />} />

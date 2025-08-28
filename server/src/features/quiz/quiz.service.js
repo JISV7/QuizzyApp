@@ -85,20 +85,27 @@ export const getQuestionsForStudent = async (assignmentId, studentId) => {
     throw new Error('ASSIGNMENT_NOT_FOUND_OR_NOT_QUIZ');
   }
 
-  // 2. Verificar que el estudiante está inscrito en el curso.
+  // 2. Verificar que el quiz ya ha abierto.
+  const now = new Date();
+  const openDate = new Date(assignment.open_date);
+  if (now < openDate) {
+    throw new Error('ASSIGNMENT_NOT_OPEN');
+  }
+
+  // 3. Verificar que el estudiante está inscrito en el curso.
   const enrolled = await isStudentEnrolled(studentId, assignment.course_id);
   if (!enrolled) {
     throw new Error('FORBIDDEN');
   }
 
-  // 3. Verificar que el estudiante no haya entregado ya el quiz.
+  // 4. Verificar que el estudiante no haya entregado ya el quiz.
   const existingSubmission = await findSubmissionByStudentAndAssignment(studentId, assignmentId);
   if (existingSubmission) {
       throw new Error('ALREADY_SUBMITTED');
   }
 
-  // 4. Obtener las preguntas y opciones (sin revelar cuál es la correcta).
-  return await findQuestionsByAssignmentId(assignmentId, false); // false = no mostrar is_correct
+  // 5. Obtener las preguntas y opciones (sin revelar cuál es la correcta).
+  return await findQuestionsByAssignmentId(assignmentId, false);
 };
 
 /**
