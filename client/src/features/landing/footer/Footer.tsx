@@ -26,6 +26,7 @@ export const Footer = () => {
                     <h4>Recursos</h4>
                     <ul>
                         <li><Link to="/docs/manuals">Manual de Usuario</Link></li>
+                        <li><Link to="/docs/faq">FAQ</Link></li>
                         <li><Link to="/docs/contact">Contacto</Link></li>
                         <li><Link to="/docs/status">Estado del Sistema</Link></li>
                     </ul>
@@ -45,7 +46,7 @@ export const Footer = () => {
             {/* Barra inferior del footer */}
             <div className="footer-landing-bottom">
                 <div className="container bottom-container">
-                     <p>© 2025 Quizzy. Todos los derechos reservados.</p>
+                     <p>© {new Date().getFullYear()} Quizzy. Todos los derechos reservados.</p>
                 </div>
             </div>
         </footer>

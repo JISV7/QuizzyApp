@@ -171,6 +171,17 @@
   border-radius: 50%;
 }
 
+/* Estilos para el enlace de mención de FAQ */
+.faq-mention-section a {
+  color: var(--dark-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.faq-mention-section a:hover {
+  text-decoration: underline; /* Añade el subrayado solo al pasar el ratón */
+}
+
 .download-manual-section {
   background-color: var(--light-gray);
   border: 1px solid #e5e7eb;
@@ -185,4 +196,69 @@
   margin-bottom: 16px;
   color: var(--text-color-light);
   font-size: 1rem;
+}
+
+/* Estilos para la sección de FAQ */
+.faq-category {
+  margin-top: 32px;
+}
+
+.faq-category h3 {
+  font-size: 1.25rem;
+  color: var(--dark-blue);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 0;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--black);
+}
+
+.faq-question:hover {
+  color: var(--turquoise);
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+  color: var(--turquoise);
+}
+
+.faq-icon.open {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.faq-answer.open {
+  max-height: 500px; /* Un valor suficientemente grande */
+  padding-bottom: 18px;
+  transition: max-height 0.4s ease-in, padding 0.4s ease-in;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding-right: 24px; /* Espacio para que no se pegue al borde */
+  line-height: 1.7;
 }

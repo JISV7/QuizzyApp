@@ -8,8 +8,8 @@ const docsMenu = [
   { path: '/docs/privacy', label: 'Política de Privacidad' },
   { path: '/docs/security', label: 'Seguridad' },
   { path: '/docs/manuals', label: 'Manuales de Usuario' },
+  { path: '/docs/faq', label: 'Preguntas Frecuentes' },
   { path: '/docs/contact', label: 'Contacto' },
-  { path: '/docs/cookies', label: 'Administrar Cookies' },
 ];
 
 // Mapeo de rutas a títulos para el encabezado
@@ -18,6 +18,7 @@ const pageTitles: { [key: string]: string } = {
   '/docs/privacy': 'Política de Privacidad',
   '/docs/security': 'Seguridad',
   '/docs/manuals': 'Manuales de Usuario',
+  '/docs/faq': 'Preguntas Frecuentes',
   '/docs/contact': 'Contacta con Nosotros',
   '/docs/cookies': 'Preferencias de Cookies',
 };

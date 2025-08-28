@@ -11,7 +11,7 @@ export const SecurityPage = () => {
 
       <div className="term-item">
         <h3>Recuperación de Contraseña</h3>
-        <p>Si olvidas tu contraseña, puedes solicitar un restablecimiento a través de nuestra página de inicio de sesión. Te enviaremos un enlace seguro a tu correo electrónico registrado para que puedas establecer una nueva contraseña. Nunca te pediremos tu contraseña por correo electrónico.</p>
+        <p>Debido a nuestro sistema de encriptación, las contraseñas no se pueden recuperar. Si olvidas tu contraseña y no puedes acceder a tu cuenta, te recomendamos ponerte en contacto con nuestro equipo de soporte a través de la página de "Contacto" para que podamos evaluar tu situación y ayudarte.</p>
       </div>
 
        <div className="term-item">

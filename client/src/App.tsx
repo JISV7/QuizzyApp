@@ -23,6 +23,7 @@ import { DocsPage } from '@/features/docs/DocsPage';
 import { ContactPage } from '@/features/docs/ContactPage';
 import { CookiesPage } from '@/features/docs/CookiesPage';
 import { StatusPage } from '@/features/docs/StatusPage';
+import { FAQPage } from '@/features/docs/FAQPage';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="cookies" element={<CookiesPage />} />
             <Route path="status" element={<StatusPage />} />
+            <Route path="faq" element={<FAQPage />} />
           </Route>
 
           {/* Rutas Protegidas */}

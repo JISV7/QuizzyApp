@@ -3,7 +3,7 @@ import { pool } from '../../config/database.js';
 /**
  * Obtiene todas las asignaciones pendientes de los cursos en los que un estudiante está inscrito.
  * Una asignación se considera pendiente si no existe una entrega (submission) asociada a ella
- * para el estudiante actual.
+ * para el estudiante actual Y la fecha de cierre aún no ha pasado.
  * @param {number} studentId - El ID del estudiante.
  * @returns {Promise<Array<object>>} Un array de objetos de asignación pendientes.
  */
@@ -23,7 +23,8 @@ export const getPendingAssignmentsForStudent = async (studentId) => {
     LEFT JOIN submissions s ON a.id = s.assignment_id AND s.student_id = ?
     WHERE e.student_id = ? 
       AND e.enrollment_status = 'active'
-      AND s.id IS NULL;
+      AND s.id IS NULL
+      AND a.close_date >= UTC_TIMESTAMP();
   `;
   const [rows] = await pool.query(sql, [studentId, studentId]);
   return rows;
