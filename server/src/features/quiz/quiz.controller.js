@@ -41,6 +41,7 @@ export const handleGetQuizQuestionsForStudent = async (req, res) => {
       'ASSIGNMENT_NOT_FOUND_OR_NOT_QUIZ': { status: 404, message: 'El quiz no fue encontrado.' },
       'NOT_ENROLLED': { status: 403, message: 'No estás inscrito en el curso de este quiz.' },
       'ALREADY_SUBMITTED': { status: 409, message: 'Ya has completado este quiz.' },
+      'ASSIGNMENT_NOT_OPEN': { status: 403, message: 'Este quiz aún no está disponible.' }
     };
     const err = errorMap[error.message] || { status: 500, message: 'Error interno del servidor.' };
     if (err.status === 500) console.error(error);

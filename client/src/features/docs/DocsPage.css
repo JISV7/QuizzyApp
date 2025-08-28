@@ -170,3 +170,19 @@
   background-color: #28a745;
   border-radius: 50%;
 }
+
+.download-manual-section {
+  background-color: var(--light-gray);
+  border: 1px solid #e5e7eb;
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.download-manual-section p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--text-color-light);
+  font-size: 1rem;
+}

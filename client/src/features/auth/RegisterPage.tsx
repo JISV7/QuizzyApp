@@ -90,9 +90,9 @@ export const RegisterPage = () => {
             <input type="checkbox" id="terms" checked={termsAccepted} onChange={(e) => setTermsAccepted(e.target.checked)} required />
             <label htmlFor="terms">
               He leído y acepto los{' '}
-              <a href="/docs/terms" target="_blank" rel="noopener noreferrer">
+              <Link to="/docs/terms" target="_blank" rel="noopener noreferrer">
                 Términos y condiciones
-              </a>.
+              </Link>.
             </label>
           </div>
           

@@ -10,6 +10,7 @@ interface Submission {
 interface Assignment {
   id: number;
   total_points: number;
+  open_date: string; // Añadimos la fecha de apertura
   close_date: string;
   allow_late_submissions: boolean;
 }
@@ -21,7 +22,12 @@ interface StudentSubmissionViewProps {
 
 export const StudentSubmissionView = ({ assignment, submission }: StudentSubmissionViewProps) => {
 
-  const isOverdue = new Date() > new Date(assignment.close_date) && !assignment.allow_late_submissions;
+  const now = new Date();
+  const openDate = new Date(assignment.open_date);
+  const closeDate = new Date(assignment.close_date);
+
+  const isNotYetOpen = now < openDate;
+  const isOverdue = now > closeDate && !assignment.allow_late_submissions;
 
   // --- VISTA CUANDO EL QUIZ YA FUE COMPLETADO ---
   if (submission) {
@@ -40,6 +46,17 @@ export const StudentSubmissionView = ({ assignment, submission }: StudentSubmiss
     );
   }
 
+  // --- VISTA CUANDO EL QUIZ AÚN NO ESTÁ DISPONIBLE ---
+  if (isNotYetOpen) {
+    return (
+      <div className="submission-status-view not-yet-open">
+        <h3>Quiz No Disponible Aún</h3>
+        <p>Este quiz estará disponible a partir del {openDate.toLocaleString()}.</p>
+      </div>
+    );
+  }
+
+  // --- VISTA CUANDO EL QUIZ HA VENCIDO ---
   if (isOverdue) {
     return (
       <div className="submission-status-view overdue">

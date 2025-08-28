@@ -3,6 +3,17 @@ export const DocsPage = () => {
     <div className="doc-section">
       <h2>Manuales de Usuario</h2>
       
+      <div className="download-manual-section">
+        <p>Para una referencia completa y sin conexión, puedes descargar nuestro manual de usuario en formato PDF.</p>
+        <a 
+          href="/Manual Usuario Quizzy.pdf" 
+          download 
+          className="btn btn-primary"
+        >
+          Descargar Manual (PDF)
+        </a>
+      </div>
+      
       <div className="term-item">
         <h3>Para Profesores</h3>
         <p><strong>Crear un curso:</strong> Desde tu panel, haz clic en "Crear Nuevo Curso", asigna un nombre y, opcionalmente, un código de acceso único para tus estudiantes.</p>
