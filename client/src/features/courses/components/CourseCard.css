@@ -1,0 +1,68 @@
+/* CourseCard.css */
+.course-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  padding: 24px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--turquoise);
+}
+
+.course-card:nth-child(2n) { border-top-color: var(--yellow); }
+.course-card:nth-child(3n) { border-top-color: var(--orange); }
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+}
+
+.card-course-name {
+  font-size: 1.4rem;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.card-course-description {
+  color: var(--text-color-light);
+  margin-bottom: 16px;
+  min-height: 40px; /* Asegura una altura mínima consistente */
+  flex-grow: 1;
+}
+
+.course-code {
+  font-family: monospace;
+  background-color: var(--light-gray);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  display: inline-block;
+}
+
+.delete-course-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--text-color-light);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 5px;
+  border-radius: 5px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.delete-course-btn:hover {
+  color: #d9534f;
+  background-color: #f2dede;
+}

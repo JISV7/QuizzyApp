@@ -1,0 +1,99 @@
+.add-question-section {
+  background-color: var(--white);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  align-self: start;
+  position: sticky;
+  top: 100px;
+}
+
+.new-question-form h4 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--black);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--dark-blue);
+  box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.2);
+}
+
+.option-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.option-input-group input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.option-input-group input[type="text"] {
+  flex-grow: 1;
+}
+
+.btn-remove-option {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  color: #9ca3af;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-remove-option:hover {
+  background-color: #fbebeb;
+  color: #ef4444;
+  border-color: #fca5a5;
+}
+
+.btn-add-option {
+  background: transparent;
+  border: none;
+  color: var(--dark-blue);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.btn-add-option:hover {
+  text-decoration: underline;
+}
+
+.form-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}

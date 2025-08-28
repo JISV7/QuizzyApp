@@ -1,0 +1,44 @@
+/* CreateCourseForm.css */
+
+.create-course-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reutilizamos la clase .form-group del AuthForm.css si es global,
+   o la definimos aquí si es específica. */
+.create-course-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.create-course-form .form-group label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.create-course-form .form-group input,
+.create-course-form .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.create-course-form .form-group input:focus,
+.create-course-form .form-group textarea:focus {
+  outline: none;
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px rgba(40, 175, 176, 0.2);
+}
+
+.create-course-form .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* El .error-message y .modal-footer se definen en Modal.css */

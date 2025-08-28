@@ -1,0 +1,83 @@
+.assignment-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s;
+}
+
+.assignment-card-link:hover {
+  transform: scale(1.02);
+}
+
+.assignment-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  border-left: 5px solid var(--turquoise);
+}
+
+.assignment-card:has(.assignment-type:contains('Quiz')) { border-left-color: var(--yellow); }
+.assignment-card:has(.assignment-type:contains('Examen')) { border-left-color: var(--orange); }
+
+.assignment-icon { 
+  font-size: 1.8rem;
+  background-color: var(--light-gray);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.assignment-info { 
+  flex-grow: 1; 
+}
+
+.assignment-type {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.assignment-title { 
+  font-size: 1.2rem; 
+  margin: 4px 0;
+  color: var(--black);
+}
+
+.assignment-dates { 
+  font-size: 0.9rem; 
+  color: var(--text-color-light); 
+}
+
+.assignment-points { 
+  font-size: 1.2rem; 
+  font-weight: 700; 
+  color: var(--dark-blue);
+}
+
+.delete-assignment-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #adb5bd;
+  transition: color 0.3s;
+  padding: 5px;
+}
+
+.delete-assignment-btn:hover {
+  color: #ef4444;
+}

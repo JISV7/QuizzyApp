@@ -1,0 +1,115 @@
+.questions-list-section h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  color: var(--black);
+}
+
+.questions-container {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.question-view-card {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e7eb;
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+
+.question-view-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.question-header strong {
+  color: var(--black);
+  line-height: 1.4;
+  margin-right: 16px;
+}
+
+.question-header span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+  background-color: #e0f7fa;
+  padding: 4px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.options-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 16px 0;
+}
+
+.options-list li {
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  background-color: #f0f0f0;
+}
+
+.options-list li.correct-option {
+  background-color: #d4ede9; /* Un verde suave */
+  color: #155724;
+  font-weight: 600;
+  border: 1px solid #c3e6cb;
+}
+
+.question-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.btn-action {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.2s;
+}
+
+.btn-edit {
+    color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+.btn-edit:hover {
+    background-color: var(--dark-blue);
+    color: white;
+}
+.btn-delete {
+    color: #d9534f;
+    border-color: #d9534f;
+}
+.btn-delete:hover {
+    background-color: #d9534f;
+    color: white;
+}
+
+.no-questions-message {
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 40px 20px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+}

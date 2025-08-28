@@ -1,0 +1,89 @@
+.manage-students-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.manage-students-form h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: var(--black);
+}
+
+/* --- Sección de Invitar --- */
+.invite-form-content {
+  display: flex;
+  gap: 12px;
+}
+
+.invite-form-content input {
+  flex-grow: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+}
+
+.invite-form-content input:focus {
+  outline: none;
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px rgba(40, 175, 176, 0.2);
+}
+
+/* --- Separador --- */
+.manage-students-form hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* --- Sección de Eliminar --- */
+.students-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.students-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.students-list li:last-child {
+  border-bottom: none;
+}
+
+.students-list input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--turquoise);
+  cursor: pointer;
+}
+
+.students-list label {
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.no-students-message {
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 20px;
+}
+
+/* --- Mensajes de feedback --- */
+.error-message, .success-message {
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.error-message { color: #d9534f; background-color: #f2dede; }
+.success-message { color: #3c763d; background-color: #dff0d8; }

@@ -1,0 +1,130 @@
+/* AuthForm.css */
+
+/* --- Variables de Color de Quizzy --- */
+:root {
+  --black: #1f271b;
+  --dark-blue: #19647e;
+  --turquoise: #28afb0;
+  --yellow: #f4d35e;
+  --orange: #ee964b;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --text-color: #333;
+  --text-color-light: #555;
+}
+
+.auth-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--light-gray);
+  font-family: 'Inter', sans-serif;
+}
+
+.auth-card {
+  background-color: var(--white);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  color: var(--text-color-light);
+  margin-bottom: 32px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-group input, .form-group select {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fff; 
+  color: #333;
+}
+
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px rgba(40, 175, 176, 0.2);
+}
+
+.auth-button {
+  background-color: var(--turquoise);
+  color: var(--white);
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 16px;
+}
+
+.auth-button:hover {
+  background-color: #239a9b;
+  transform: translateY(-2px);
+}
+
+.auth-switch-link {
+  margin-top: 24px;
+  color: var(--text-color-light);
+}
+
+.auth-switch-link a {
+  color: var(--turquoise);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch-link a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #d9534f;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.success-message {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}

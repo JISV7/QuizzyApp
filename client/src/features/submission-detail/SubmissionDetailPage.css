@@ -1,0 +1,88 @@
+.submission-detail-layout {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 32px 24px;
+}
+
+.submission-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.submission-detail-header {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.submission-detail-header h1 {
+  font-size: 2rem;
+  margin: 16px 0;
+}
+
+.final-grade-summary {
+  background-color: #eef2ff;
+  color: #4338ca;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  display: inline-block;
+}
+
+.answers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.answer-card {
+  border-radius: 8px;
+  padding: 16px;
+  border-left-width: 5px;
+  border-left-style: solid;
+}
+
+.answer-card.correct {
+  background-color: #f0fdf4;
+  border-color: #22c55e;
+}
+
+.answer-card.incorrect {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+}
+
+.answer-card .question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.answer-card .question-header p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.answer-card .points {
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.answer-card .answer-body p {
+  margin: 4px 0;
+  color: #374151;
+}
+
+.student-answer {
+  font-style: italic;
+}
+
+.correct-answer {
+  font-weight: 600;
+}
